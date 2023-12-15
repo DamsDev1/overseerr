@@ -4150,6 +4150,22 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Company'
+  /lists:
+    get:
+      summary: Get your lists on Overseerr
+      description: Returns a list of movies/tv in a JSON object.
+      tags:
+        - search
+      responses:
+        '200':
+          description: Results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  availableLists:
+                    type: array
   /discover/movies:
     get:
       summary: Discover movies

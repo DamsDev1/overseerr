@@ -15,6 +15,7 @@ import { checkUser, isAuthenticated } from '@server/middleware/auth';
 import { mapWatchProviderDetails } from '@server/models/common';
 import { mapProductionCompany } from '@server/models/Movie';
 import { mapNetwork } from '@server/models/Tv';
+import listsRoutes from '@server/routes/lists';
 import settingsRoutes from '@server/routes/settings';
 import { appDataPath, appDataStatus } from '@server/utils/appDataVolume';
 import { getAppVersion, getCommitTag } from '@server/utils/appVersion';
@@ -141,6 +142,7 @@ router.get(
 router.use('/settings', isAuthenticated(Permission.ADMIN), settingsRoutes);
 router.use('/search', isAuthenticated(), searchRoutes);
 router.use('/discover', isAuthenticated(), discoverRoutes);
+router.use('/lists', isAuthenticated(), listsRoutes);
 router.use('/request', isAuthenticated(), requestRoutes);
 router.use('/movie', isAuthenticated(), movieRoutes);
 router.use('/tv', isAuthenticated(), tvRoutes);
